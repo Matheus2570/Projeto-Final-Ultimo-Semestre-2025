@@ -19,6 +19,8 @@ export default function NavBar() {
     
   };
 
+  
+
   const tituloAtual = titulos[location.pathname] || "Estação Meterológica";
 
   return (

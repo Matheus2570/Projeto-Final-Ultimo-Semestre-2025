@@ -1,0 +1,221 @@
+   .ia-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+  }
+  
+  .ia-titulo {
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: inherit;
+    opacity: 0.95;
+  }
+  
+  /* Input */
+  .ia-input {
+    width: 100%;
+    max-width: 700px;
+    padding: 18px 28px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: inherit;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    outline: none;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+  
+    /* AS 3 LINHAS MÁGICAS QUE RESOLVEM O ESTOURO */
+    box-sizing: border-box;        /* padding entra no cálculo da largura */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  .ia-input::placeholder { color: inherit; opacity: 0.7; }
+  .ia-input:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.35);
+  }
+  
+  /* Botão Enviar */
+  .ia-btn {
+    padding: 14px 44px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: rgba(74, 144, 226, 0.92);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.35);
+    transition: all 0.3s ease;
+    margin-bottom: 40px;
+  }
+  
+  .ia-btn:hover:not(:disabled) {
+    background-color: rgba(74, 144, 226, 1);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(74, 144, 226, 0.45);
+  }
+  
+  .ia-btn:disabled {
+    background-color: rgba(74, 144, 226, 0.4);
+    cursor: not-allowed;
+  }
+  
+  /* Sugestões com lápis */
+  .ia-sugestoes {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 10px 0;
+    align-items: center;
+  }
+  
+  .ia-sugestao-item {
+    background-color: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+    color: inherit;
+    padding: 16px 28px;
+    border-radius: 50px;
+    font-size: 1.15em;
+    cursor: pointer;
+    min-width: 440px;
+    width: fit-content;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  /* O lápis voltou! */
+  .ia-sugestao-item::before {
+    content: "✏️";
+    font-size: 1.4em;
+  }
+  
+  .ia-sugestao-item:hover {
+    background-color: rgba(255, 255, 255, 0.32);
+    transform: translateX(10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+  }
+  
+  /* Texto da categoria */
+  .ia-categorias-texto {
+    background-color: rgba(227, 242, 253, 0.65);
+    backdrop-filter: blur(10px);
+    color: #1565C0;
+    padding: 22px 40px;
+    border-radius: 50px;
+    font-size: 1.4em;
+    font-weight: 600;
+    margin: 50px auto 30px;
+    max-width: 750px;
+    box-shadow: 0 6px 20px rgba(21, 101, 192, 0.18);
+  }
+  
+  /* Botões de categoria */
+  .ia-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+  }
+  
+  .ia-botao-categoria {
+    padding: 14px 32px;
+    font-size: 1.2em;
+    font-weight: 600;
+    background-color: rgba(187, 222, 251, 0.75);
+    backdrop-filter: blur(8px);
+    color: #1565C0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 135px;
+  }
+  
+  .ia-botao-categoria:hover {
+    background-color: rgba(144, 202, 249, 0.95);
+    transform: translateY(-3px);
+  }
+  
+  .ia-botao-categoria.selecionado {
+    background-color: rgba(25, 118, 210, 0.95);
+    color: white;
+  }
+  
+  /* Resposta */
+  .ia-resposta {
+    margin-top: 50px;
+    background-color: rgba(248, 249, 250, 0.75);
+    backdrop-filter: blur(12px);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
+    text-align: left;
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .ia-resposta h3 {
+    color: #1565C0;
+    font-size: 1.9em;
+    margin-bottom: 22px;
+    text-align: center;
+    opacity: 0.95;
+  }
+  
+  .ia-resposta p {
+    font-size: 1.22em;
+    line-height: 1.85;
+    color: inherit;
+    opacity: 0.92;
+    white-space: pre-wrap;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .ia-titulo { font-size: 2.3em; }
+    .ia-input { font-size: 1.15em; }
+    .ia-sugestao-item { min-width: 340px; font-size: 1.05em; }
+    .ia-categorias-texto { font-size: 1.25em; padding: 18px 32px; }
+  }
+  
+  @media (max-width: 480px) {
+    .ia-titulo { font-size: 2em; }
+    .ia-sugestao-item { min-width: 90%; }
+    .ia-botao-categoria { padding: 12px 20px; font-size: 1.05em; }
+  }
+  
+  /* Tema escuro automático */
+  [data-theme="dark"] .ia-input,
+  [data-theme="dark"] .ia-sugestao-item,
+  [data-theme="dark"] .ia-resposta,
+  [data-theme="dark"] .ia-categorias-texto,
+  [data-theme="dark"] .ia-botao-categoria {
+    background-color: rgba(255, 255, 255, 0.11) !important;
+    color: #e8e8e8 !important;
+  }
+  
+  [data-theme="dark"] .ia-botao-categoria.selecionado,
+  [data-theme="dark"] .ia-btn {
+    background-color: rgba(59, 130, 246, 0.95) !important;
+  }
+  
+  [data-theme="dark"] .ia-btn:hover {
+    background-color: rgba(59, 130, 246, 1) !important;
+  }

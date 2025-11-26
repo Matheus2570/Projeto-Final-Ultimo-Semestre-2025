@@ -3,6 +3,7 @@
   position: relative;
   z-index: 20;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  
 }
 
 .navTopo {
@@ -74,7 +75,9 @@
 
 /* Tema claro */
 [data-theme="light"] .navBar {
-  background-color: #90A3AE; /* tom principal light */
+  background-color: rgba(100, 148, 237, 0.18);
+  border: 1px solid rgba(100, 148, 237, 0.3);
+  box-shadow: 0 -8px 32px rgba(59, 105, 178, 0.15);
 }
 
 [data-theme="light"] .tituloSite {
@@ -92,9 +95,13 @@
 }
 
 /* Tema escuro */
+
 [data-theme="dark"] .navBar {
-  background-color: #2e3c46; /* fundo dark mais suave */
+  background-color: rgba(59, 105, 178, 0.25) ;
+  border-top-color: rgba(100, 148, 237, 0.35);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
 }
+
 
 [data-theme="dark"] .tituloSite {
   color: #ffffff; /* título claro no dark */

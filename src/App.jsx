@@ -1,12 +1,12 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Páginas novas do projeto de Esportes + IA
-import Home from "./pages/home";
-import IA from "./pages/iaGenerativa";
-import Grupo from "./pages/grupo";
+// Páginas
+import Home from "./pages/Home";
+import Ia from "./pages/Ia";
+import Grupo from "./pages/Grupo";
 
-// Componentes gerais
+// Componentes
 import NavBar from "./components/navBar";
 import Footer from "./components/footer";
 
@@ -14,11 +14,13 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/ia" element={<IA />} />
+        <Route path="/ia" element={<Ia />} />
         <Route path="/grupo" element={<Grupo />} />
       </Routes>
+
       <Footer />
     </BrowserRouter>
   );

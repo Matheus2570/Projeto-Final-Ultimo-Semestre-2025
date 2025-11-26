@@ -1,64 +1,34 @@
-// components/NavBar.jsx
-import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
-import "./NavBar.css";
-import BotaoMudarTema from "./botaoMudaTema";
+import { useState, useEffect } from 'react'; // Importa hooks do React
+import "./botaoMudaTema.css"; // Importa CSS para estilizar o botão
 
-export default function NavBar() {
-  const [menuAberto, setMenuAberto] = useState(false);
-  const location = useLocation();
+// Função que alterna entre temas claro e escuro
+const MudarTema = () => {
+  // Pega o tema salvo no localStorage ou define como 'light' se não existir
+  const temaSalvo = localStorage.getItem('tema') || 'light';
+  
+  // Cria um estado para armazenar o tema atual
+  const [tema, setTema] = useState(temaSalvo);
 
-  const alternarMenu = () => setMenuAberto(!menuAberto);
-  const handleClick = () => setMenuAberto(false);
-
-  // Títulos das páginas do seu projeto
-  const titulos = {
-    "/": "Home",
-    "/ia": "IA Generativa",
-    "/grupo": "Sobre o Grupo",
+  // Hook que atualiza o tema no localStorage e no documento toda vez que o tema muda
+  useEffect(() => {
+    localStorage.setItem('tema', tema);
+    document.documentElement.setAttribute('data-theme', tema);
+  }, [tema]);
+  
+  // Função que alterna entre os temas 'light' e 'dark'
+  const alternarTema = () => {
+    setTema(prevTema => (prevTema === 'light' ? 'dark' : 'light'));
   };
 
-  const tituloAtual = titulos[location.pathname] || "Projeto Interdisciplinar";
-
+  // Retorna o botão que alterna o tema
   return (
-    <nav className="navBar">
-      <div className="navTopo">
-        <h1 className="tituloSite">{tituloAtual}</h1>
-
-        <div className="tituloComBotao">
-          <i
-            className={menuAberto ? "bx bx-menu-alt-right" : "bx bx-menu"}
-            onClick={alternarMenu}
-            style={{ cursor: "pointer" }}
-          ></i>
-
-          <BotaoMudarTema />
-        </div>
-      </div>
-
-      {menuAberto && (
-        <div id="menu-opcoes" className="menu-opcoes">
-          <ul>
-            <li>
-              <Link to="/" onClick={handleClick} className="navLink">
-                🏠 Home
-              </Link>
-            </li>
-
-            <li>
-              <Link to="/ia" onClick={handleClick} className="navLink">
-                🤖 IA Generativa
-              </Link>
-            </li>
-
-            <li>
-              <Link to="/grupo" onClick={handleClick} className="navLink">
-                👥 Sobre o Grupo
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
-    </nav>
+    <div>
+      <button className="botao-tema" onClick={alternarTema}>
+        {tema === 'light' ? <i className='bx bxs-moon'></i> : <i className='bx bxs-sun'></i>}
+      </button>
+    </div>
   );
-}
+};
+
+// Exporta a função como componente padrão
+export default MudarTema;

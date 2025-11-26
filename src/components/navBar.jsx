@@ -1,33 +1,35 @@
-import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
-import "./NavBar.css";
-import BotaoMudarTema from "./botaoMudaTema";
+// components/NavBar.jsx
+import { Link, useLocation } from "react-router-dom"; 
+import { useState } from "react"; 
+import "./NavBar.css"; 
+import BotaoMudarTema from "./botaoMudaTema"; 
 
 export default function NavBar() {
   const [menuAberto, setMenuAberto] = useState(false);
-  const location = useLocation();
+  const location = useLocation(); // pega a rota atual
 
   const alternarMenu = () => setMenuAberto(!menuAberto);
   const handleClick = () => setMenuAberto(false);
 
-  // Títulos das páginas
+  // Map de rotas para títulos
   const titulos = {
-    "/": "Projeto Home Esportes",
-    "/ia": "IA Educacional Esportiva",
-    "/grupo": "Nosso Grupo",
+    "/": "🏠 Página Principal",
+     "/ia": "📄 Ia Generativa",
+    "/grupo": "👥 Grupo",
+    
   };
 
-  const tituloAtual = titulos[location.pathname] || "Projeto Esportes";
+  const tituloAtual = titulos[location.pathname] || "Estação Meterológica";
 
   return (
     <nav className="navBar">
       <div className="navTopo">
         <h1 className="tituloSite">{tituloAtual}</h1>
-
         <div className="tituloComBotao">
           <i
             className={menuAberto ? "bx bx-menu-alt-right" : "bx bx-menu"}
             onClick={alternarMenu}
+            style={{ cursor: "pointer" }}
           ></i>
           <BotaoMudarTema />
         </div>
@@ -36,21 +38,10 @@ export default function NavBar() {
       {menuAberto && (
         <div id="menu-opcoes" className="menu-opcoes">
           <ul>
-            <li>
-              <Link to="/" onClick={handleClick} className="navLink">
-                🏠 Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/ia" onClick={handleClick} className="navLink">
-                🤖 IA Esportiva
-              </Link>
-            </li>
-            <li>
-              <Link to="/grupo" onClick={handleClick} className="navLink">
-                👥 Grupo
-              </Link>
-            </li>
+            <li><Link to="/" onClick={handleClick} className="navLink">🏠 Página Principal</Link></li>
+            <li><Link to="/ia" onClick={handleClick} className="navLink">📄 Ia Generativa</Link></li>
+            <li><Link to="/grupo" onClick={handleClick} className="navLink">👥 Grupo</Link></li>
+           
           </ul>
         </div>
       )}

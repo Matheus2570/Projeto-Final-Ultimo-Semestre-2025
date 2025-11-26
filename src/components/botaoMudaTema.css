@@ -1,0 +1,35 @@
+body {
+  background-color: #FFFBF3;
+  color: #1f1f1f;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+/* Tema claro */
+[data-theme="light"] body {
+  background-color: #FFFBF3;
+  color: #1f1f1f;
+}
+
+/* Tema escuro */
+[data-theme="dark"] body {
+  background-color: #1a242c;
+  color: #f0f0f0;
+}
+
+[data-theme="dark"] a { color: #ffffff; }
+[data-theme="light"] a { color: #000000; }
+
+.botao-tema {
+  border-radius: 50%;
+  font-size: 1.8vw;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 10px;
+  transition: color 0.3s, box-shadow 0.3s;
+}
+
+/* Responsividade do botão */
+@media (max-width: 768px) { .botao-tema { font-size: 2rem; padding: 18px; } }
+@media (max-width: 480px) { .botao-tema { font-size: 1.6rem; padding: 20px; } }

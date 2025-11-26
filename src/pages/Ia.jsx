@@ -63,73 +63,82 @@ export default function Ia() {
   }
 
   return (
-    <div className="ia-container">
+    <div className="ia-container-novo">
       <h1 className="ia-titulo">Pergunte o que quiser e tenha ótimos estudos</h1>
-
-      {/* Input com Enter */}
-      <input
-        className="ia-input"
-        type="text"
-        value={pergunta}
-        placeholder={atual.placeholder}
-        onChange={(e) => setPergunta(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && !carregando && enviarPergunta()}
-      />
-
-      <button
-        className="ia-btn"
-        onClick={enviarPergunta}
-        disabled={carregando || !pergunta.trim()}
-      >
-        {carregando ? "Carregando..." : "Enviar"}
-      </button>
-
-      {/* Exemplos fixos do tema atual */}
-      <div className="ia-sugestoes">
-        {atual.exemplos.map((ex, i) => (
-          <p
-            key={i}
-            className="ia-sugestao-item"
-            onClick={() => setPergunta(ex)}
-          >
-            {ex}
-          </p>
-        ))}
-      </div>
-
-      <div className="ia-categorias-texto">
-        Ou selecione uma categoria e obtenha respostas direcionadas
-      </div>
-
-      {/* Botões de categorias - Geral sempre visível */}
-      <div className="ia-botoes">
+  
+      {/* Área central: Input + Botão */}
+      <div className="ia-centro">
+        <input
+          className="ia-input"
+          type="text"
+          value={pergunta}
+          placeholder={atual.placeholder}
+          onChange={(e) => setPergunta(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && !carregando && enviarPergunta()}
+        />
+  
         <button
-          className={`ia-botao-categoria ${tema === "geral" ? "selecionado" : ""}`}
-          onClick={() => trocarTema("geral")}
+          className="ia-btn"
+          onClick={enviarPergunta}
+          disabled={carregando || !pergunta.trim()}
         >
-          Geral
+          {carregando ? "Carregando..." : "Enviar"}
         </button>
-
-        {Object.keys(esportes).map((key) =>
-          key !== "geral" ? (
-            <button
-              key={key}
-              className={`ia-botao-categoria ${tema === key ? "selecionado" : ""}`}
-              onClick={() => trocarTema(key)}
-            >
-              {esportes[key].nome}
-            </button>
-          ) : null
-        )}
       </div>
-
-      {/* Resposta da IA */}
-      {resposta && (
-        <div className="ia-resposta">
-          <h3>Resposta:</h3>
-          <p style={{ whiteSpace: "pre-wrap" }}>{resposta}</p>
+  
+      {/* Layout em 3 colunas */}
+      <div className="ia-layout-tres-colunas">
+        {/* Coluna Esquerda: Exemplos */}
+        <div className="ia-coluna-esquerda">
+          <h3 className="ia-coluna-titulo">💡 Exemplos rápidos</h3>
+          <div className="ia-sugestoes">
+            {atual.exemplos.map((ex, i) => (
+              <p
+                key={i}
+                className="ia-sugestao-item"
+                onClick={() => setPergunta(ex)}
+              >
+                {ex}
+              </p>
+            ))}
+          </div>
         </div>
-      )}
+  
+        {/* Coluna Central: Resposta da IA (só aparece quando tem resposta) */}
+        <div className="ia-coluna-centro">
+          {resposta && (
+            <div className="ia-resposta">
+              <h3>Resposta:</h3>
+              <p style={{ whiteSpace: "pre-wrap" }}>{resposta}</p>
+            </div>
+          )}
+        </div>
+  
+        {/* Coluna Direita: Categorias */}
+        <div className="ia-coluna-direita">
+          <h3 className="ia-coluna-titulo">🎯 Categorias</h3>
+          <div className="ia-botoes-categorias">
+            <button
+              className={`ia-botao-categoria ${tema === "geral" ? "selecionado" : ""}`}
+              onClick={() => trocarTema("geral")}
+            >
+              Geral
+            </button>
+  
+            {Object.keys(esportes).map((key) =>
+              key !== "geral" ? (
+                <button
+                  key={key}
+                  className={`ia-botao-categoria ${tema === key ? "selecionado" : ""}`}
+                  onClick={() => trocarTema(key)}
+                >
+                  {esportes[key].nome}
+                </button>
+              ) : null
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

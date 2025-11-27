@@ -1,5 +1,5 @@
 import React from "react";
-import "./Grupo.css";
+import "./grupo.css";
 
 // =================== IMAGENS DA EQUIPE ===================
 import Matheus from "../assets/Matheus.jpeg";

@@ -2,9 +2,9 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Páginas
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import Ia from "./pages/Ia";
-import Grupo from "./pages/Grupo";
+import Grupo from "./pages/grupo";
 
 // Componentes
 import NavBar from "./components/navBar";

@@ -1,0 +1,305 @@
+/* ====================== GERAL ====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+}
+
+/* ====================== SEÇÃO EQUIPE ====================== */
+.equipe-page {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+}
+
+.equipe-page h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Grid responsivo dos cards */
+.equipe-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.equipe-card {
+  flex: 1 1 320px;
+  max-width: 380px;
+  background: rgba(144, 163, 174, 0.15);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.equipe-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(144, 163, 174, 0.25);
+}
+
+.equipe-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #9bb3ff;
+  margin-bottom: 18px;
+}
+
+.equipe-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.equipe-card ul {
+  text-align: left;
+  padding-left: 22px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.equipe-card ul li {
+  margin-bottom: 8px;
+}
+
+/* ====================== SEÇÃO SOBRE NÓS ====================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* Header "SOBRE NÓS" */
+.header {
+  background: #9bb3ff;
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+  font-size: 38px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Seção com foto + texto */
+.sobre {
+  background: #f0f4ff;
+  padding: 70px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.sobre img {
+  width: 380px;
+  max-width: 90%;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 5px solid white;
+}
+
+.texto-linhas {
+  max-width: 600px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #2c3e50;
+}
+
+.texto-linhas p {
+  margin-bottom: 20px;
+}
+
+/* Objetivos do Projeto */
+.objetivos {
+  padding: 80px 40px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.objetivos h2 {
+  color: #d4a300;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 340px;
+  background: #eddc7a;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card-title {
+  background: #e1c85b;
+  padding: 16px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 19px;
+  color: #333;
+}
+
+.card-content {
+  padding: 22px;
+  text-align: left;
+}
+
+.card-content h2 {
+  font-size: 19px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* ====================== RESPONSIVIDADE ====================== */
+@media (max-width: 992px) {
+  .equipe-container {
+    gap: 40px;
+  }
+  .sobre {
+    padding: 50px 30px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .equipe-page h2,
+  .header {
+    font-size: 32px;
+  }
+
+  .sobre {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .texto-linhas {
+    max-width: 100%;
+  }
+}
+
+/* Fotos da equipe em linha (abaixo do título) */
+.membro-foto {
+  text-align: center;
+}
+
+.membro-foto img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #9bb3ff;
+  margin-bottom: 12px;
+}
+
+.membro-foto p {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+/* Foto do grupo completo (abaixo do texto) */
+.foto-grupo-completo {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f0f4ff;
+}
+
+.foto-grupo-completo img {
+  max-width: 90%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 6px solid white;
+}
+
+/* Seção do texto logo abaixo das fotos */
+.sobre-texto-section {
+  background: #f0f4ff;
+  padding: 70px 20px;
+}
+
+.container-texto {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.foto-grupo {
+  width: 380px;
+  max-width: 90%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 6px solid white;
+}
+
+.container-objetivos {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 60px 20px;
+}
+@media (max-width: 480px) {
+  .equipe-page h2,
+  .header {
+    font-size: 28px;
+  }
+
+  .equipe-card {
+    padding: 20px;
+  }
+
+  .equipe-card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .sobre img {
+    width: 90%;
+  }
+}

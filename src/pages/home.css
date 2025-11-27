@@ -1,0 +1,92 @@
+/* Fundo geral da página */
+.home-page {
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+/* Section com fundo amarelo claro */
+.section-a {
+  width: 100%;
+  max-width: 1100px;
+  background-color: #fff3a3;     /* amarelo claro */
+  padding: 40px 40px;
+  border-radius: 40px;
+}
+
+/* Título */
+.titulo-sobre {
+  text-align: center;
+  color: #7a2f5b;
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+/* Área dos cards */
+.cards-area {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Cada card */
+.bloco-card {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background-color:  #fff9d5;
+  padding: 30px;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+
+
+/* Imagem */
+.imagem-sobre {
+  width: 260px;
+  height: 260px;
+  border-radius: 20px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Texto */
+.texto-sobre h2 {
+  color: #7a2f5b;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.texto-sobre p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+
+
+/* Responsivo - mobile */
+@media (max-width: 768px) {
+  .section-a {
+    padding: 40px 20px;
+    border-radius: 30px;
+  }
+
+  .bloco-card,
+  .bloco-card.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imagem-sobre {
+    width: 200px;
+    height: 200px;
+  }
+}

@@ -2,7 +2,6 @@
 .home-page {
   width: 100%;
   padding: 40px 20px 0;           /* remove padding inferior */
-  background-color: #ffffff;
   display: flex;
   justify-content: center;
   min-height: 100vh;              /* garante que ocupe a tela toda */
@@ -13,21 +12,16 @@
   width: 100%;
   max-width: 1100px;
   background-color: #fff3a3;
-  padding: 50px 40px 60px;        /* padding maior embaixo para conteúdo não grudar */
+  padding: 50px 40px 60px;       
   border-radius: 40px;
   margin-top: 50px;
-  margin-bottom: 20px;            /* ESPAÇO MÍNIMO até o footer – ajuste aqui! */
+  margin-bottom: 20px;            
   box-sizing: border-box;
 }
 
-/* Se quiser ainda mais colado no footer (quase encostando): */
 .section-a {
-  margin-bottom: 10px;   /* super colado */
-  /* ou */
-  margin-bottom: 5px;    /* quase encostando */
-  /* ou */
-  margin-bottom: 0;      /* 100% encostado (só se o footer tiver fundo diferente) */
-}
+  margin-bottom: 10px;   
+ 
 
 /* Título */
 .titulo-sobre {
@@ -50,7 +44,7 @@
   display: flex;
   align-items: center;
   gap: 30px;
-  background-color: #fff9d5;
+  background-color:  #f5eec1;
   padding: 30px;
   border-radius: 0px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);

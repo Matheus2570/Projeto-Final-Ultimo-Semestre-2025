@@ -1,7 +1,7 @@
 // components/NavBar.jsx
 import { Link, useLocation } from "react-router-dom"; 
 import { useState } from "react"; 
-import "./NavBar.css"; 
+import "./navBar.css"; 
 import BotaoMudarTema from "./botaoMudaTema.jsx"; 
 
 export default function NavBar() {

@@ -1,0 +1,69 @@
+.equipe-page {
+  text-align: center;
+  padding: 40px;
+}
+
+.equipe-page h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Grid responsivo */
+.equipe-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 90px;
+}
+
+/* Cada card (membro) */
+.equipe-card {
+  flex: 1 1 300px;
+  max-width: 370px;
+  background-color: rgba(144, 163, 174, 0.2);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.equipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagem do membro */
+.equipe-card img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* Nome */
+.equipe-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Lista de tarefas */
+.equipe-card ul {
+  text-align: left;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .equipe-card {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 700px) {
+  .equipe-card {
+    flex: 1 1 90%;
+  }
+}

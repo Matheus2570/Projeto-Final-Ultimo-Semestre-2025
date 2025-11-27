@@ -2,7 +2,7 @@
 import { Link, useLocation } from "react-router-dom"; 
 import { useState } from "react"; 
 import "./NavBar.css"; 
-import BotaoMudarTema from "./botaoMudaTema"; 
+import BotaoMudarTema from "./botaoMudaTema.jsx"; 
 
 export default function NavBar() {
   const [menuAberto, setMenuAberto] = useState(false);

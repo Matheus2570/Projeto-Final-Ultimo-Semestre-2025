@@ -1,6 +1,6 @@
 import { useState } from "react";
 import esportes from "../../api/esportes";
-import "./Ia.css";
+import "./IaPage.css";
 
 // Imagens
 import geral1 from "../assets/geral1.jpeg";

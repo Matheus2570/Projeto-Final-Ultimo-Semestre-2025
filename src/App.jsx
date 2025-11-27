@@ -14,13 +14,11 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ia" element={<Ia />} />
         <Route path="/grupo" element={<Grupo />} />
       </Routes>
-
       <Footer />
     </BrowserRouter>
   );

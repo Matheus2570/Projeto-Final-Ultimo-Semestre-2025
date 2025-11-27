@@ -1,305 +1,258 @@
-/* ====================== GERAL ====================== */
-* {
+/* ====================== RESET & VARIÁVEIS ====================== */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f8f9fa;
-  color: #333;
+:root {
+  /* Cores Light Mode */
+  --cor-primaria: #1565c0;
+  --cor-secundaria: #90baf9;
+  --cor-destaque: #edc07a;
+  --bg-claro: #ffffff;
+  --bg-suave: #f8fbff;
+  --texto-principal: #222;
+  --texto-secundario: #444;
+  --texto-claro: #666;
+
+  /* Gerais */
+  --radius: 16px;
+  --transition: all 0.35s ease;
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* ====================== SEÇÃO EQUIPE ====================== */
-.equipe-page {
-  text-align: center;
-  padding: 60px 20px;
-  background: #ffffff;
+/* ====================== DARK MODE - VARIÁVEIS ====================== */
+[data-theme="dark"] {
+  --cor-primaria: #90caf9;
+  --cor-secundaria: #64b5f6;
+  --cor-destaque: #d4a53f;
+  --bg-claro: #1e293b;
+  --bg-suave: #0f172a;
+  --texto-principal: #e2e8f0;
+  --texto-secundario: #cbd5e1;
+  --texto-claro: #94a3b8;
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-.equipe-page h2 {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: #2c3e50;
-  font-weight: bold;
-}
-
-/* Grid responsivo dos cards */
-.equipe-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 60px;
-  max-width: 1400px;
+.container {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-.equipe-card {
-  flex: 1 1 320px;
-  max-width: 380px;
-  background: rgba(144, 163, 174, 0.15);
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
+/* ====================== TIPOGRAFIA ====================== */
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-.equipe-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  background: rgba(144, 163, 174, 0.25);
+/* ====================== EQUIPE ====================== */
+.equipe-section {
+  padding: 100px 0;
+  
+  color: var(--texto-principal);
 }
 
-.equipe-card img {
+.equipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.membro-card {
+  text-align: center;
+  transition: var(--transition);
+}
+
+.membro-card:hover {
+  transform: translateY(-12px);
+}
+
+.membro-foto {
   width: 140px;
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #9bb3ff;
-  margin-bottom: 18px;
+  border: 5px solid var(--cor-secundaria);
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
-.equipe-card h3 {
-  font-size: 1.35rem;
-  margin-bottom: 15px;
-  color: #2c3e50;
+.membro-card:hover .membro-foto {
+  border-color: var(--cor-primaria);
+  box-shadow: var(--shadow-md);
 }
 
-.equipe-card ul {
-  text-align: left;
-  padding-left: 22px;
+.membro-nome {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--texto-principal);
+  margin-bottom: 0.25rem;
+}
+
+.membro-cargo {
+  color: var(--texto-claro);
   font-size: 0.95rem;
-  line-height: 1.6;
-  color: #444;
+  font-weight: 500;
 }
 
-.equipe-card ul li {
-  margin-bottom: 8px;
+/* ====================== SOBRE NÓS (APENAS TEXTO) ====================== */
+.sobre-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #f8fbff 0%, #e8f0fe 100%);
+  color: var(--texto-secundario);
 }
 
-/* ====================== SEÇÃO SOBRE NÓS ====================== */
-.container {
-  width: 100%;
-  max-width: 1200px;
+[data-theme="dark"] .sobre-section {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.sobre-texto-center {
+  text-align: center;
+  max-width: 900px;
   margin: 0 auto;
-  background: #ffffff;
+}
+
+.sobre-texto {
+  font-size: 1.22rem;
+  line-height: 1.9;
+}
+
+.sobre-texto p {
+  margin-bottom: 1.6rem;
+}
+
+.sobre-texto strong {
+  color: var(--cor-primaria);
+  font-weight: 600;
+}
+
+/* ====================== OBJETIVOS ====================== */
+.objetivos-section {
+  padding: 100px 0;
+  
+  color: var(--texto-principal);
+}
+
+.objetivos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.objetivo-card {
+  background: rgba(237, 220, 122, 0.92);
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  width: 100%;
+  max-width: 380px;
 }
 
-/* Header "SOBRE NÓS" */
-.header {
-  background: #9bb3ff;
+.objetivo-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Dark Mode - Cards de Objetivo */
+[data-theme="dark"] .objetivo-card {
+  background: rgba(212, 165, 63, 0.28);
+  border: 1px solid rgba(212, 165, 63, 0.4);
+}
+
+.card-header {
+  background: rgba(225, 200, 91, 0.98);
+  padding: 16px 20px;
   text-align: center;
-  padding: 50px 20px;
-  color: white;
-  font-size: 38px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-/* Seção com foto + texto */
-.sobre {
-  background: #f0f4ff;
-  padding: 70px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
-}
-
-.sobre img {
-  width: 380px;
-  max-width: 90%;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  border: 5px solid white;
-}
-
-.texto-linhas {
-  max-width: 600px;
-  font-size: 17px;
-  line-height: 1.7;
-  color: #2c3e50;
-}
-
-.texto-linhas p {
-  margin-bottom: 20px;
-}
-
-/* Objetivos do Projeto */
-.objetivos {
-  padding: 80px 40px;
-  background: #ffffff;
-  text-align: center;
-}
-
-.objetivos h2 {
-  color: #d4a300;
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 50px;
-}
-
-.cards {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.card {
-  width: 340px;
-  background: #eddc7a;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-.card-title {
-  background: #e1c85b;
-  padding: 16px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 19px;
+  font-weight: 700;
+  font-size: 1.1rem;
   color: #333;
 }
 
-.card-content {
-  padding: 22px;
-  text-align: left;
+[data-theme="dark"] .card-header {
+  background: rgba(212, 165, 63, 0.75);
+  color: #e2e8f0;
 }
 
-.card-content h2 {
-  font-size: 19px;
-  color: #2c3e50;
-  margin-bottom: 10px;
+.card-body {
+  padding: 28px 24px;
+  text-align: center;
 }
 
-.card-content p {
-  font-size: 15px;
-  line-height: 1.5;
-  color: #444;
+.card-body h4 {
+  font-size: 1.45rem;
+  margin-bottom: 14px;
+  color: var(--texto-principal);
+  line-height: 1.3;
 }
 
-/* ====================== RESPONSIVIDADE ====================== */
+.card-body p {
+  color: var(--texto-secundario);
+  line-height: 1.7;
+  font-size: 1.02rem;
+}
+
+/* ====================== RESPONSIVO ====================== */
 @media (max-width: 992px) {
-  .equipe-container {
-    gap: 40px;
+  .section-title {
+    font-size: 2.5rem;
   }
-  .sobre {
-    padding: 50px 30px;
-    gap: 40px;
+
+  .sobre-texto {
+    font-size: 1.15rem;
   }
 }
 
 @media (max-width: 768px) {
-  .equipe-page h2,
-  .header {
-    font-size: 32px;
+  .section-title {
+    font-size: 2.3rem;
   }
 
-  .sobre {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .texto-linhas {
-    max-width: 100%;
+  .equipe-grid,
+  .objetivos-grid {
+    gap: 35px;
   }
 }
 
-/* Fotos da equipe em linha (abaixo do título) */
-.membro-foto {
-  text-align: center;
+@media (max-width: 640px) {
+  .section-title {
+    font-size: 2.1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .membro-foto {
+    width: 110px;
+    height: 110px;
+  }
+
+  .sobre-texto {
+    font-size: 1.1rem;
+    line-height: 1.85;
+  }
+
+  .card-body h4 {
+    font-size: 1.3rem;
+  }
 }
 
-.membro-foto img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #9bb3ff;
-  margin-bottom: 12px;
-}
-
-.membro-foto p {
-  font-weight: bold;
-  font-size: 1rem;
-  color: #2c3e50;
-}
-/* Foto do grupo completo (abaixo do texto) */
-.foto-grupo-completo {
-  text-align: center;
-  padding: 40px 20px;
-  background: #f0f4ff;
-}
-
-.foto-grupo-completo img {
-  max-width: 90%;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  border: 6px solid white;
-}
-
-/* Seção do texto logo abaixo das fotos */
-.sobre-texto-section {
-  background: #f0f4ff;
-  padding: 70px 20px;
-}
-
-.container-texto {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
-}
-
-.foto-grupo {
-  width: 380px;
-  max-width: 90%;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  border: 6px solid white;
-}
-
-.container-objetivos {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 60px 20px;
-}
 @media (max-width: 480px) {
-  .equipe-page h2,
-  .header {
-    font-size: 28px;
+  .section-title {
+    font-size: 1.9rem;
   }
 
-  .equipe-card {
-    padding: 20px;
-  }
-
-  .equipe-card img {
-    width: 120px;
-    height: 120px;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 340px;
-  }
-
-  .sobre img {
-    width: 90%;
+  .container {
+    padding: 0 15px;
   }
 }

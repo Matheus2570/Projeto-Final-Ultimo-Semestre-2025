@@ -1,4 +1,5 @@
 import React from "react";
+import "./Grupo.css";
 
 // =================== IMAGENS DA EQUIPE ===================
 import Matheus from "../assets/Matheus.jpeg";
@@ -8,106 +9,100 @@ import AnaClara from "../assets/AnaClara.jpeg";
 import LauraMarques from "../assets/LauraMarques.jpeg";
 import Valentina from "../assets/Valentina.jpeg";
 
-// =================== IMAGENS DO SOBRE NÓS ===================
-import FotoLogo from "../assets/LogoDoGrupo.jpeg";      // logo ou foto principal
-import FotoGrupo from "../assets/FotoDoGrupo2.jpeg";     // foto do grupo juntos
+const equipe = [
+  { nome: "Matheus de Carvalho", cargo: "Líder", img: Matheus },
+  { nome: "Maria Clara Freire", cargo: "Vice-líder", img: MariaFreire },
+  { nome: "Vitor Gabriel de Paula", cargo: "Desenvolvedor", img: VitorGabriel },
+  { nome: "Ana Clara Zamoner Dias", cargo: "Desenvolvedora", img: AnaClara },
+  { nome: "Laura Marques", cargo: "Desenvolvedora", img: LauraMarques },
+  { nome: "Valentina Marcela Martelli", cargo: "Desenvolvedora", img: Valentina },
+];
 
-// =================== CSS ===================
-import "./grupo.css";   // ou o nome que você estiver usando (GrupoSobre.css, etc.)
+const objetivos = [
+  {
+    titulo: "Apoiar o aprendizado dos alunos",
+    subtitulo: "Ferramenta com IA para pesquisas escolares",
+    texto:
+      "Permitir que os estudantes encontrem informações de forma rápida e organizada utilizando inteligência artificial.",
+  },
+  {
+    titulo: "Utilizar IA no dia a dia",
+    subtitulo: "API Gemini integrada",
+    texto:
+      "Gerar explicações, resumos e respostas personalizadas, tornando o estudo mais prático e acessível.",
+  },
+  {
+    titulo: "Experiência prática em tecnologia",
+    subtitulo: "Projeto real do curso",
+    texto:
+      "Aplicar desenvolvimento web, integração de APIs, banco de dados e metodologia Scrum em um produto funcional.",
+  },
+];
 
 export default function GrupoSobre() {
-  const membros = [
-    { nome: "Matheus de Carvalho (Líder)",         img: Matheus },
-    { nome: "Maria Clara Freire (Vice-líder)",     img: MariaFreire },
-    { nome: "Vitor Gabriel de Paula",              img: VitorGabriel },
-    { nome: "Ana Clara Zamoner Dias",              img: AnaClara },
-    { nome: "Laura Marques",                       img: LauraMarques },
-    { nome: "Valentina Marcela Martelli",          img: Valentina },
-  ];
-
   return (
     <>
       {/* ==================== EQUIPE ==================== */}
-      <section className="equipe-page">
-        <h2>NOSSA EQUIPE</h2>
-        <div className="equipe-container">
-          {membros.map((membro, i) => (
-            <div className="membro-foto" key={i}>
-              <img src={membro.img} alt={membro.nome} />
-              <p>{membro.nome}</p>
-            </div>
-          ))}
+      <section className="equipe-section">
+        <div className="container">
+          <h2 className="section-title">Nossa Equipe</h2>
+          <div className="equipe-grid">
+            {equipe.map((membro, index) => (
+              <article className="membro-card" key={index}>
+                <img
+                  src={membro.img}
+                  alt={`Foto de ${membro.nome}`}
+                  className="membro-foto"
+                  loading="lazy"
+                />
+                <h3 className="membro-nome">{membro.nome}</h3>
+                <p className="membro-cargo">{membro.cargo}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ==================== TEXTO SOBRE NÓS ==================== */}
-      <section className="sobre-texto-section">
-        <div className="container-texto">
-          <img src={FotoLogo} alt="Logo do Grupo" className="foto-grupo" />
-          
-          <div className="texto-linhas">
+      {/* ==================== SOBRE NÓS (APENAS TEXTO) ==================== */}
+      <section className="sobre-section">
+        <div className="container sobre-texto-center">
+          <h2 className="section-title">Sobre o Grupo 5</h2>
+          <div className="sobre-texto">
             <p>
-              Somos o <strong>Grupo 5</strong> do curso Técnico em Análise e Desenvolvimento de
-              Sistemas do SENAI Valinhos (Unidade Vinhedo). Nosso time é formado por
-              estudantes comprometidos com a inovação tecnológica e com a criação
-              de soluções voltadas à educação.
+              Somos o <strong>Grupo 5</strong> do curso Técnico em Análise e
+              Desenvolvimento de Sistemas do SENAI Valinhos (Unidade Vinhedo).
+              Estudantes apaixonados por tecnologia e comprometidos em criar
+              soluções inovadoras para a educação.
             </p>
             <p>
-              Trabalhamos com colaboração, responsabilidade e organização,
-              utilizando a metodologia <strong>SCRUM</strong> para dividir etapas e garantir que
-              cada parte do projeto seja desenvolvida com qualidade e evolução contínua.
+              Trabalhamos com <strong>metodologia Scrum</strong>, colaboração
+              constante, responsabilidade e foco na entrega de qualidade.
             </p>
             <p>
-              Nosso principal objetivo é aplicar na prática todo o conhecimento
-              adquirido ao longo do curso, criando uma ferramenta funcional e
-              acessível que possa atender às necessidades do professor de educação física.
+              Nosso objetivo é transformar o conhecimento adquirido em sala de
+              aula em uma ferramenta real que auxilie professores de educação
+              física e seus alunos.
             </p>
           </div>
         </div>
-
-        {/* Foto do grupo inteiro (opcional – você pode trocar ou deixar as duas) */}
-        <div className="foto-grupo-completo">
-          <img src={FotoGrupo} alt="Foto do grupo completo" />
-        </div>
       </section>
 
-      {/* ==================== OBJETIVOS DO PROJETO ==================== */}
-      <section className="objetivos">
-        <div className="container-objetivos">
-          <h2>Objetivos do Projeto</h2>
-          <div className="cards">
-            <div className="card">
-              <div className="card-title">APOIAR O APRENDIZADO</div>
-              <div className="card-content">
-                <h3>Apoiar o aprendizado dos alunos</h3>
-                <p>
-                  Oferecer uma ferramenta que auxilie os estudantes nas pesquisas escolares,
-                  permitindo que encontrem informações de forma rápida e organizada através da IA.
-                </p>
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="card-title">IA NO DIA A DIA</div>
-              <div className="card-content">
-                <h3>Utilizar IA para facilitar estudos</h3>
-                <p>
-                  A plataforma usa a API Gemini para gerar explicações, resumos e respostas
-                  relacionadas ao conteúdo pesquisado, tornando o estudo mais prático e acessível.
-                </p>
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="card-title">EXPERIÊNCIA REAL</div>
-              <div className="card-content">
-                <h3>Desenvolver experiência prática em tecnologia</h3>
-                <p>
-                  Aplicar conhecimentos de desenvolvimento web, integração de APIs,
-                  banco de dados e metodologia SCRUM em um projeto real de software.
-                </p>
-              </div>
-            </div>
+      {/* ==================== OBJETIVOS ==================== */}
+      <section className="objetivos-section">
+        <div className="container">
+          <h2 className="section-title">Objetivos do Projeto</h2>
+          <div className="objetivos-grid">
+            {objetivos.map((obj, index) => (
+              <article className="objetivo-card" key={index}>
+                <div className="card-header">
+                  <h3>{obj.subtitulo}</h3>
+                </div>
+                <div className="card-body">
+                  <h4>{obj.titulo}</h4>
+                  <p>{obj.texto}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

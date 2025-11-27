@@ -2,14 +2,44 @@ import { useState } from "react";
 import esportes from "../../api/esportes";
 import "./Ia.css";
 
+// Imagens
+import geral1 from "../assets/geral1.jpeg";
+import geral2 from "../assets/geral2.jpeg";
+import futebol1 from "../assets/futebol1.jpeg";
+import futebol2 from "../assets/futebol2.jpeg";
+import volei1 from "../assets/volei1.jpeg";
+import volei2 from "../assets/volei2.jpeg";
+import basquete1 from "../assets/basquete1.jpeg";
+import basquete2 from "../assets/basquete2.jpeg";
+import handebol1 from "../assets/handebol1.jpeg";
+import handebol2 from "../assets/handebol2.jpeg";
+import rugby1 from "../assets/rugby1.jpeg";
+import rugby2 from "../assets/rugby2.jpeg";
+import lutas1 from "../assets/lutas1.jpeg";
+import lutas2 from "../assets/lutas2.jpeg";
+
+// React Markdown
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
+const imagensDuplas = {
+  geral: [geral1, geral2],
+  futebol: [futebol1, futebol2],
+  volei: [volei1, volei2],
+  basquete: [basquete1, basquete2],
+  handebol: [handebol1, handebol2],
+  rugby: [rugby1, rugby2],
+  lutas: [lutas1, lutas2],
+};
+
 export default function Ia() {
   const [tema, setTema] = useState("geral");
   const [pergunta, setPergunta] = useState("");
   const [resposta, setResposta] = useState("");
   const [carregando, setCarregando] = useState(false);
 
-  // Pega os dados do tema atual (prompt, placeholder, exemplos...)
   const atual = esportes[tema];
+  const [imgEsquerda, imgDireita] = imagensDuplas[tema] || imagensDuplas.geral;
 
   async function enviarPergunta() {
     if (!pergunta.trim()) return;
@@ -65,8 +95,7 @@ export default function Ia() {
   return (
     <div className="ia-container-novo">
       <h1 className="ia-titulo">Pergunte o que quiser e tenha ótimos estudos</h1>
-  
-      {/* Área central: Input + Botão */}
+
       <div className="ia-centro">
         <input
           className="ia-input"
@@ -76,7 +105,6 @@ export default function Ia() {
           onChange={(e) => setPergunta(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && !carregando && enviarPergunta()}
         />
-  
         <button
           className="ia-btn"
           onClick={enviarPergunta}
@@ -85,38 +113,42 @@ export default function Ia() {
           {carregando ? "Carregando..." : "Enviar"}
         </button>
       </div>
-  
-      {/* Layout em 3 colunas */}
+
       <div className="ia-layout-tres-colunas">
-        {/* Coluna Esquerda: Exemplos */}
+        {/* Coluna Esquerda */}
         <div className="ia-coluna-esquerda">
-          <h3 className="ia-coluna-titulo">💡 Exemplos rápidos</h3>
+          <h3 className="ia-coluna-titulo">Exemplos rápidos</h3>
           <div className="ia-sugestoes">
             {atual.exemplos.map((ex, i) => (
-              <p
-                key={i}
-                className="ia-sugestao-item"
-                onClick={() => setPergunta(ex)}
-              >
+              <p key={i} className="ia-sugestao-item" onClick={() => setPergunta(ex)}>
                 {ex}
               </p>
             ))}
           </div>
+          <div className="ia-imagem-lateral">
+            <img src={imgEsquerda} alt="Imagem temática esquerda" />
+          </div>
         </div>
-  
-        {/* Coluna Central: Resposta da IA (só aparece quando tem resposta) */}
+
+        {/* Coluna Central - Resposta com Markdown + Scroll perfeito */}
         <div className="ia-coluna-centro">
+          {carregando && <p className="ia-carregando">Pensando...</p>}
+
           {resposta && (
             <div className="ia-resposta">
               <h3>Resposta:</h3>
-              <p style={{ whiteSpace: "pre-wrap" }}>{resposta}</p>
+              <div className="markdown-content">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {resposta}
+                </ReactMarkdown>
+              </div>
             </div>
           )}
         </div>
-  
-        {/* Coluna Direita: Categorias */}
+
+        {/* Coluna Direita */}
         <div className="ia-coluna-direita">
-          <h3 className="ia-coluna-titulo">🎯 Categorias</h3>
+          <h3 className="ia-coluna-titulo">Categorias</h3>
           <div className="ia-botoes-categorias">
             <button
               className={`ia-botao-categoria ${tema === "geral" ? "selecionado" : ""}`}
@@ -124,7 +156,6 @@ export default function Ia() {
             >
               Geral
             </button>
-  
             {Object.keys(esportes).map((key) =>
               key !== "geral" ? (
                 <button
@@ -136,6 +167,9 @@ export default function Ia() {
                 </button>
               ) : null
             )}
+          </div>
+          <div className="ia-imagem-lateral">
+            <img src={imgDireita} alt="Imagem temática direita" />
           </div>
         </div>
       </div>

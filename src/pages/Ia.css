@@ -249,9 +249,7 @@
     color: white;
   }
   
-  /* ========================
-     RESPONSIVIDADE
-     ======================== */
+
   @media (max-width: 1100px) {
     .ia-layout-tres-colunas {
       grid-template-columns: 1fr;
@@ -285,9 +283,93 @@
     .ia-resposta p { padding: 0 24px 24px; }
   }
   
-  /* ========================
-     TEMA ESCURO
-     ======================== */
+.ia-imagem-lateral {
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+}
+
+.ia-imagem-lateral img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .ia-layout-tres-colunas {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .ia-imagem-lateral img {
+    max-height: 220px;
+  }
+}
+
+@media (max-width: 576px) {
+  .ia-imagem-lateral img {
+    max-height: 180px;
+  }
+}
+
+/* Markdown com scroll perfeito - compatível com seu design atual */
+.markdown-content {
+  padding: 0 32px 32px;
+  font-size: 1.22em;
+  line-height: 1.85;
+  color: inherit;
+  opacity: 0.92;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Scroll bonito mantendo seu estilo azul */
+.markdown-content::-webkit-scrollbar {
+  width: 10px;
+}
+.markdown-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+.markdown-content::-webkit-scrollbar-thumb {
+  background: rgba(21, 101, 192, 0.4);
+  border-radius: 10px;
+}
+.markdown-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(21, 101, 192, 0.6);
+}
+
+/* Dark mode */
+[data-theme="dark"] .markdown-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+[data-theme="dark"] .markdown-content::-webkit-scrollbar-thumb {
+  background: rgba(100, 150, 255, 0.4);
+}
+[data-theme="dark"] .markdown-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 150, 255, 0.6);
+}
+
+/* Loading centralizado */
+.ia-carregando {
+  text-align: center;
+  font-size: 1.3em;
+  color: #1565C0;
+  font-style: italic;
+  margin: 2rem 0;
+}
+[data-theme="dark"] .ia-carregando {
+  color: #90caf9;
+}
+
+
   [data-theme="dark"] .ia-input,
   [data-theme="dark"] .ia-sugestao-item,
   [data-theme="dark"] .ia-resposta,

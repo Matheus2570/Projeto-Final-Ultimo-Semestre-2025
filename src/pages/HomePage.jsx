@@ -26,6 +26,27 @@ function Home() {
     }
   ];
 
+  const objetivos = [
+  {
+    titulo: "Apoiar o aprendizado dos alunos",
+    subtitulo: "Ferramenta com IA para pesquisas escolares",
+    texto:
+      "Permitir que os estudantes encontrem informações de forma rápida e organizada utilizando inteligência artificial.",
+  },
+  {
+    titulo: "Utilizar IA no dia a dia",
+    subtitulo: "API Gemini integrada",
+    texto:
+      "Gerar explicações, resumos e respostas personalizadas, tornando o estudo mais prático e acessível.",
+  },
+  {
+    titulo: "Experiência prática em tecnologia",
+    subtitulo: "Projeto real do curso",
+    texto:
+      "Aplicar desenvolvimento web, integração de APIs, banco de dados e metodologia Scrum em um produto funcional.",
+  },
+];
+
   return (
     <div className="home-page">
       <section className="section-a">
@@ -56,6 +77,27 @@ function Home() {
           ))}
         </div>
       </section>
+
+       {/* ==================== OBJETIVOS ==================== */}
+      <section className="objetivos-section">
+        <div className="container">
+          <h2 className="section-title">Objetivos do Projeto</h2>
+          <div className="objetivos-grid">
+            {objetivos.map((obj, index) => (
+              <article className="objetivo-card" key={index}>
+                <div className="card-header">
+                  <h3>{obj.subtitulo}</h3>
+                </div>
+                <div className="card-body">
+                  <h4>{obj.titulo}</h4>
+                  <p>{obj.texto}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      
     </div>
   );
 }

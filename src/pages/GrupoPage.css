@@ -57,13 +57,12 @@
 /* ====================== EQUIPE ====================== */
 .equipe-section {
   padding: 100px 0;
-  
   color: var(--texto-principal);
 }
 
 .equipe-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);   /* força 4 colunas */
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   justify-items: center;
 }
@@ -106,7 +105,7 @@
   font-weight: 500;
 }
 
-/* ====================== SOBRE NÓS (APENAS TEXTO) ====================== */
+/* ====================== SOBRE NÓS ====================== */
 .sobre-section {
   padding: 100px 0;
   background: linear-gradient(135deg, #f8fbff 0%, #e8f0fe 100%);
@@ -137,73 +136,6 @@
   font-weight: 600;
 }
 
-/* ====================== OBJETIVOS ====================== */
-.objetivos-section {
-  padding: 100px 0;
-  
-  color: var(--texto-principal);
-}
-
-.objetivos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  justify-items: center;
-}
-
-.objetivo-card {
-  background: rgba(237, 220, 122, 0.92);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  width: 100%;
-  max-width: 380px;
-}
-
-.objetivo-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-md);
-}
-
-/* Dark Mode - Cards de Objetivo */
-[data-theme="dark"] .objetivo-card {
-  background: rgba(212, 165, 63, 0.28);
-  border: 1px solid rgba(212, 165, 63, 0.4);
-}
-
-.card-header {
-  background: rgba(225, 200, 91, 0.98);
-  padding: 16px 20px;
-  text-align: center;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-[data-theme="dark"] .card-header {
-  background: rgba(212, 165, 63, 0.75);
-  color: #e2e8f0;
-}
-
-.card-body {
-  padding: 28px 24px;
-  text-align: center;
-}
-
-.card-body h4 {
-  font-size: 1.45rem;
-  margin-bottom: 14px;
-  color: var(--texto-principal);
-  line-height: 1.3;
-}
-
-.card-body p {
-  color: var(--texto-secundario);
-  line-height: 1.7;
-  font-size: 1.02rem;
-}
-
 /* ====================== RESPONSIVO ====================== */
 @media (max-width: 992px) {
   .section-title {
@@ -220,13 +152,8 @@
     font-size: 2.3rem;
   }
 
-  .equipe-grid{
-     grid-template-columns: repeat(2, 1fr);   /* força 4 colunas */
-  }
-
-  .equipe-grid,
-  .objetivos-grid {
-    
+  .equipe-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 35px;
   }
 }
@@ -245,10 +172,6 @@
   .sobre-texto {
     font-size: 1.1rem;
     line-height: 1.85;
-  }
-
-  .card-body h4 {
-    font-size: 1.3rem;
   }
 }
 

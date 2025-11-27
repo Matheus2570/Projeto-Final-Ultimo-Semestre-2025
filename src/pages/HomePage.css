@@ -5,8 +5,8 @@
   min-height: 100vh;
   padding: 40px 20px 100px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
- 
 }
 
 .section-a {
@@ -16,7 +16,7 @@
   padding: 60px 50px;
   border-radius: 40px;
   box-shadow: var(--shadow-md);
-  margin: 50px 0 30px;
+  margin: 50px auto 30px; /* centralizado */
 }
 
 [data-theme="dark"] .section-a {
@@ -43,8 +43,8 @@
   display: flex;
   align-items: center;
   gap: 50px;
-  background: #fff8e1;                     /* amarelo bem suave e bonito no light */
-  border: 2px solid #fde68a;                /* borda douradinha */
+  background: #fff8e1;
+  border: 2px solid #fde68a;
   padding: 40px;
   border-radius: 32px;
   box-shadow: var(--shadow-sm);
@@ -52,7 +52,7 @@
 }
 
 [data-theme="dark"] .bloco-card {
-  background: rgba(212, 165, 63, 0.18);     /* dourado escuro translúcido */
+  background: rgba(212, 165, 63, 0.18);
   border: 2px solid rgba(212, 165, 63, 0.45);
   backdrop-filter: blur(8px);
 }
@@ -98,17 +98,131 @@
   text-align: justify;
 }
 
+/* ====================== OBJETIVOS DO PROJETO ====================== */
+
+.objetivos-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 5px;
+  background: var(--cor-destaque);
+  margin: 20px auto 0;
+  border-radius: 3px;
+}
+
+.objetivos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.objetivo-card {
+  background: #fff8e1;
+  border: 2px solid #fde68a;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="dark"] .objetivo-card {
+  background: rgba(212, 165, 63, 0.18);
+  border: 2px solid rgba(212, 165, 63, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.objetivo-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--cor-destaque);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #fcd34d, #f, #fde68a);
+  padding: 20px 24px;
+  text-align: center;
+}
+
+[data-theme="dark"] .card-header {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(212, 165, 63, 0.5));
+}
+
+.card-header h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  margin: 0;
+}
+
+.card-body {
+  padding: 28px 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+}
+
+.card-body h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  margin: 0;
+}
+
+.card-body p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--texto-secundario);
+  margin: 0;
+}
+
 /* ====================== RESPONSIVO ====================== */
+
 @media (max-width: 992px) {
-  .section-a { padding: 50px 40px; }
-  .bloco-card { gap: 40px; padding: 35px; }
-  .imagem-sobre { width: 250px; height: 250px; }
+  .section-a { 
+    padding: 50px 40px; 
+    margin: 50px auto 30px;
+  }
+  .bloco-card { 
+    gap: 40px; 
+    padding: 35px; 
+  }
+  .imagem-sobre { 
+    width: 250px; 
+    height: 250px; 
+  }
 }
 
 @media (max-width: 768px) {
-  .home-page { padding: 30px 15px 80px; }
-  .section-a { padding: 40px 25px; border-radius: 30px; }
-  .titulo-sobre { font-size: 2.2rem; }
+  .home-page { 
+    padding: 30px 15px 80px; 
+  }
+  .section-a { 
+    padding: 40px 25px; 
+    border-radius: 30px; 
+  }
+  .titulo-sobre, .section-title { 
+    font-size: 2.2rem; 
+  }
 
   .bloco-card,
   .bloco-card.reverse {
@@ -116,11 +230,33 @@
     text-align: center;
   }
 
-  .imagem-sobre { width: 220px; height: 220px; }
+  .imagem-sobre { 
+    width: 220px; 
+    height: 220px; 
+  }
+
+  .objetivos-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
 @media (max-width: 480px) {
-  .titulo-sobre { font-size: 2rem; }
-  .bloco-card { padding: 25px; }
-  .imagem-sobre { width: 180px; height: 180px; }
+  .titulo-sobre, .section-title { 
+    font-size: 2rem; 
+  }
+  .bloco-card { 
+    padding: 25px; 
+  }
+  .imagem-sobre { 
+    width: 180px; 
+    height: 180px; 
+  }
+
+  .card-header h3 {
+    font-size: 1.2rem;
+  }
+  .card-body h4 {
+    font-size: 1.35rem;
+  }
 }

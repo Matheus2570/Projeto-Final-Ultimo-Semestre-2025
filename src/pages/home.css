@@ -1,92 +1,114 @@
-/* Fundo geral da página */
+/* ====================== HOME - SOBRE O PROJETO ====================== */
+
 .home-page {
   width: 100%;
-  padding: 40px 20px 0;           /* remove padding inferior */
+  min-height: 100vh;
+  padding: 40px 20px 100px;
   display: flex;
   justify-content: center;
-  min-height: 100vh;              /* garante que ocupe a tela toda */
+ 
 }
 
-/* Section com fundo amarelo claro – agora bem perto do footer */
 .section-a {
   width: 100%;
   max-width: 1100px;
-  background-color: #fff3a3;
-  padding: 50px 40px 60px;       
+  background: var(--bg-claro);
+  padding: 60px 50px;
   border-radius: 40px;
-  margin-top: 50px;
-  margin-bottom: 20px;            
-  box-sizing: border-box;
+  box-shadow: var(--shadow-md);
+  margin: 50px 0 30px;
 }
 
-.section-a {
-  margin-bottom: 10px;   
- 
+[data-theme="dark"] .section-a {
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
 
-/* Título */
 .titulo-sobre {
   text-align: center;
-  color: #7a2f5b;
-  font-size: 36px;
-  font-weight: 600;
-  margin-bottom: 50px;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  margin-bottom: 3.5rem;
 }
 
-/* Área dos cards */
 .cards-area {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 50px;
 }
 
-/* Cada card */
+/* CARD AMARELADO no light e tom dourado suave no dark */
 .bloco-card {
   display: flex;
   align-items: center;
-  gap: 30px;
-  background-color:  #f5eec1;
-  padding: 30px;
-  border-radius: 0px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  gap: 50px;
+  background: #fff8e1;                     /* amarelo bem suave e bonito no light */
+  border: 2px solid #fde68a;                /* borda douradinha */
+  padding: 40px;
+  border-radius: 32px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+[data-theme="dark"] .bloco-card {
+  background: rgba(212, 165, 63, 0.18);     /* dourado escuro translúcido */
+  border: 2px solid rgba(212, 165, 63, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.bloco-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--cor-destaque);
 }
 
 .bloco-card.reverse {
   flex-direction: row-reverse;
 }
 
-/* Imagem */
 .imagem-sobre {
-  width: 260px;
-  height: 260px;
-  border-radius: 20px;
+  width: 280px;
+  height: 280px;
+  border-radius: 24px;
   object-fit: cover;
   flex-shrink: 0;
+  border: 5px solid var(--cor-secundaria);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
-/* Texto */
+.bloco-card:hover .imagem-sobre {
+  border-color: var(--cor-primaria);
+  box-shadow: var(--shadow-md);
+}
+
 .texto-sobre h2 {
-  color: #7a2f5b;
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 1.9rem;
   font-weight: 700;
+  color: var(--cor-primaria);
+  margin-bottom: 1.4rem;
 }
 
 .texto-sobre p {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #333;
-  margin-bottom: 12px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--texto-secundario);
+  margin-bottom: 1rem;
   text-align: justify;
 }
 
-/* Responsivo */
+/* ====================== RESPONSIVO ====================== */
+@media (max-width: 992px) {
+  .section-a { padding: 50px 40px; }
+  .bloco-card { gap: 40px; padding: 35px; }
+  .imagem-sobre { width: 250px; height: 250px; }
+}
+
 @media (max-width: 768px) {
-  .section-a {
-    padding: 40px 20px;
-    border-radius: 30px;
-    margin-top: 30px;
-    margin-bottom: 15px;   /* também reduz no mobile */
-  }
+  .home-page { padding: 30px 15px 80px; }
+  .section-a { padding: 40px 25px; border-radius: 30px; }
+  .titulo-sobre { font-size: 2.2rem; }
 
   .bloco-card,
   .bloco-card.reverse {
@@ -94,8 +116,11 @@
     text-align: center;
   }
 
-  .imagem-sobre {
-    width: 200px;
-    height: 200px;
-  }
+  .imagem-sobre { width: 220px; height: 220px; }
+}
+
+@media (max-width: 480px) {
+  .titulo-sobre { font-size: 2rem; }
+  .bloco-card { padding: 25px; }
+  .imagem-sobre { width: 180px; height: 180px; }
 }

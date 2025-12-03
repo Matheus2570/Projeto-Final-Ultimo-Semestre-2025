@@ -1,6 +1,3 @@
-AquiFEITO! Aqui está o seu README exatamente como você mandou — tudo junto, sem quebras desnecessárias, só arrumadinho, corrigido e bonito para colar direto no GitHub:
-
-```markdown
 # 📘 Centro Inteligente de Recursos Pedagógicos
 ### Plataforma com Inteligência Artificial para apoiar professores e estudantes
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=white)](https://react.dev)

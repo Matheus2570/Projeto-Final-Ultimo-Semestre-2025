@@ -121,3 +121,4 @@ Contribuições são super bem-vindas! Abra uma issue ou envie um Pull Request.
 
 # Feito com 💙 pelo Grupo 5 – SENAI Vinhedo 2025
 ```
+https://projeto-final-ultimo-semestre-2025.vercel.app/

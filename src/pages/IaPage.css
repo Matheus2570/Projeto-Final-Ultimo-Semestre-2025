@@ -23,7 +23,9 @@
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-  margin-bottom: 5%;
+  margin-bottom: 40px 0;
+    margin-bottom: 5%;
+
 }
 
 .ia-input {
@@ -72,7 +74,7 @@
   cursor: not-allowed;
 }
 
-/* ====================== LAYOUT PRINCIPAL ====================== */
+/* ====================== LAYOUT PRINCIPAL – 100% FLEX ====================== */
 .ia-layout-flex {
   display: flex;
   gap: 30px;
@@ -85,16 +87,19 @@
   flex-direction: column;
 }
 
+/* Laterais */
 .ia-coluna-esquerda,
 .ia-coluna-direita {
   flex: 1 1 320px;
 }
 
+/* Centro – resposta maior */
 .ia-coluna-centro {
   flex: 2 1 600px;
   min-width: 0;
 }
 
+/* Títulos laterais */
 .ia-coluna-titulo {
   font-size: 1.5em;
   margin-bottom: 20px;
@@ -187,18 +192,28 @@
   margin: 2rem 0;
 }
 
-/* ====================== DIREITA – CATEGORIAS EM 2 COLUNAS (SEM GRID) ====================== */
+/* ====================== DIREITA – CATEGORIAS ====================== */
 .ia-botoes-categorias {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;           /* permite quebra */
   gap: 14px;
   margin-bottom: 20px;
-  justify-content: center;
+  justify-content: center;   /* centraliza as 2 colunas */
 }
 
+
+/* No mobile: vira horizontal com wrap */
+@media (max-width: 1100px) {
+ .ia-botao-categoria {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+}
+
+/* 2 colunas fixas em telas grandes e médias */
 .ia-botao-categoria {
-  flex: 1 1 calc(50% - 7px);   /* 2 colunas: 50% menos metade do gap */
-  min-width: 140px;
+  flex: 1 1 calc(50% - 7px);   /* 50% - metade do gap de 14px */
+  min-width: 140px;            /* evita ficar muito estreito */
   padding: 14px 20px;
   font-size: 1.15em;
   font-weight: 600;
@@ -238,11 +253,18 @@
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
-/* ====================== RESPONSIVO ====================== */
+/* ====================== RESPONSIVO – SÓ FLEX ====================== */
 @media (max-width: 1100px) {
   .ia-layout-flex {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .ia-coluna-centro,
+  .ia-coluna-esquerda,
+  .ia-coluna-direita {
+    flex: 1 1 auto;
+    width: 100%;
   }
 
   .ia-coluna-centro   { order: 1; }
@@ -252,15 +274,10 @@
   .ia-centro {
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 30px;
   }
 
   .ia-btn { width: 100%; max-width: 400px; }
-
-  /* Em telas médias/pequenas: volta para 1 coluna nas categorias */
-  .ia-botao-categoria {
-    flex: 1 1 100%;
-    min-width: auto;
-  }
 }
 
 @media (max-width: 768px) {
@@ -280,8 +297,10 @@
   .ia-resposta h3 { font-size: 1.5em; padding: 16px 18px 12px; }
   .markdown-content { padding: 0 16px 16px; font-size: 1em; line-height: 1.6; }
   .ia-imagem-lateral img { max-height: 160px; }
+  .ia-botao-categoria { flex: 1 1 100%; min-width: auto; }
   .ia-sugestoes { gap: 12px; }
 }
+
 
 /* ====================== DARK MODE ====================== */
 [data-theme="dark"] .ia-input,

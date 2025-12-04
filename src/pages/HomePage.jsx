@@ -5,47 +5,48 @@ import Foto2 from "../assets/imagemProjetoF2.png";
 
 function Home() {
   const cards = [
-    {
-      title: "Como funciona?",
-      img: Foto1,
-      text: [
-        "O Centro Inteligente de Recursos Pedagógicos é uma plataforma baseada em inteligência artificial que apoia a criação de conteúdos didáticos.",
-        "O professor descreve o tema ou o objetivo da aula, e a ferramenta gera automaticamente planos de aula, exercícios, atividades, explicações e avaliações.",
-        "Todo o conteúdo produzido pode ser ajustado manualmente pelo professor para atender às necessidades específicas de cada turma.",
-        "O resultado final é um material alinhado ao currículo e adaptado à realidade dos estudantes do SESI Vinhedo."
-      ]
-    },
-    {
-      title: "Resultados Esperados",
-      img: Foto2,
-      text: [
-        "Com o uso do Professor Assistente, os docentes ganham mais agilidade na preparação de aulas, recebendo materiais de alta qualidade produzidos de forma automática.",
-        "A plataforma também permite personalizar cada conteúdo gerado, tornando o ensino mais organizado, eficiente e atrativo para os estudantes.",
-        "Dessa forma, o professor economiza tempo, amplia suas possibilidades pedagógicas e fortalece o processo de ensino-aprendizagem."
-      ]
-    }
-  ];
-
-  const objetivos = [
   {
-    titulo: "Apoiar o aprendizado dos alunos",
-    subtitulo: "Ferramenta com IA para pesquisas escolares",
-    texto:
-      "Permitir que os estudantes encontrem informações de forma rápida e organizada utilizando inteligência artificial.",
+    title: "Como funciona?",
+    img: Foto1,
+    text: [
+      "O projeto surgiu a partir do pedido de um professor que precisava de uma ferramenta para os alunos pesquisarem em sala de aula sem fugirem do tema.",
+      "A plataforma utiliza inteligência artificial para garantir que as respostas sejam sempre relacionadas ao assunto solicitado, evitando resultados aleatórios ou conteúdos que não têm relação com a atividade.",
+      "O aluno digita sua dúvida e recebe uma resposta objetiva, organizada e alinhada ao contexto da aula.",
+      "Assim, o professor mantém o foco dos estudantes e garante mais qualidade nas pesquisas realizadas durante as atividades."
+    ]
   },
   {
-    titulo: "Utilizar IA no dia a dia",
-    subtitulo: "API Gemini integrada",
-    texto:
-      "Gerar explicações, resumos e respostas personalizadas, tornando o estudo mais prático e acessível.",
-  },
-  {
-    titulo: "Experiência prática em tecnologia",
-    subtitulo: "Projeto real do curso",
-    texto:
-      "Aplicar desenvolvimento web, integração de APIs, banco de dados e metodologia Scrum em um produto funcional.",
-  },
+    title: "Resultados Esperados",
+    img: Foto2,
+    text: [
+      "Com a plataforma, os alunos ganham mais agilidade para encontrar respostas confiáveis e alinhadas ao tema da aula.",
+      "Os professores passam a ter mais controle sobre o conteúdo pesquisado, garantindo que todos permaneçam dentro do assunto estudado.",
+      "O sistema torna as aulas mais dinâmicas e produtivas, reduzindo distrações e aumentando a qualidade do aprendizado."
+    ]
+  }
 ];
+
+const objetivos = [
+  {
+    titulo: "Garantir foco nas pesquisas",
+    subtitulo: "Respostas alinhadas ao tema da aula",
+    texto:
+      "Evitar que os alunos encontrem conteúdos irrelevantes ou que desviem do assunto solicitado pelo professor."
+  },
+  {
+    titulo: "Oferecer agilidade e confiabilidade",
+    subtitulo: "IA como ferramenta de apoio",
+    texto:
+      "Permitir que as pesquisas sejam rápidas, seguras e com informações precisas, facilitando o andamento das atividades."
+  },
+  {
+    titulo: "Apoiar o professor em sala de aula",
+    subtitulo: "Ferramenta prática e educativa",
+    texto:
+      "Auxiliar na condução das aulas, garantindo que os alunos permaneçam focados e ampliando a eficiência do processo de ensino."
+  }
+];
+
 
   return (
     <div className="home-page">

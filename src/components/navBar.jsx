@@ -21,7 +21,7 @@ export default function NavBar() {
 
   
 
-  const tituloAtual = titulos[location.pathname] || "Estação Meterológica";
+  const tituloAtual = titulos[location.pathname] || "Estação de Esportes";
 
   return (
     <nav className="navBar">

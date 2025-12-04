@@ -176,7 +176,7 @@
 
 /* Cabeçalho do card */
 .card-header {
-  background: linear-gradient(135deg, #fcd34d, #f, #fde68a); /* parece ter erro no #f */
+  background: linear-gradient(135deg, #fcd34d, #fff, #fde68a); /* parece ter erro no #f */
   padding: 20px 24px;
   text-align: center;
 }

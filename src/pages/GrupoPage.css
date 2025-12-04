@@ -1,11 +1,6 @@
 /* ====================== RESET & VARIÁVEIS ====================== */
 
-/* Reset global:
-   Remove margens/paddings padrões e ativa box-sizing para facilitar layouts */
-
-
 :root {
-  /* Paleta do modo claro */
   --cor-primaria: #1565c0;
   --cor-secundaria: #90baf9;
   --cor-destaque: #edc07a;
@@ -15,17 +10,12 @@
   --texto-secundario: #444;
   --texto-claro: #666;
 
-  /* Variáveis gerais */
-  --radius: 16px;             /* Borda arredondada padrão */
-  --transition: all 0.35s ease; /* Transição suave */
-  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);  /* Sombra leve */
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
+  --radius: 16px;
+  --transition: all 0.35s ease;
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* ====================== DARK MODE - VARIÁVEIS ====================== */
-
-/* Quando o elemento tiver data-theme="dark",
-   todas as variáveis abaixo substituem as do :root */
 [data-theme="dark"] {
   --cor-primaria: #90caf9;
   --cor-secundaria: #64b5f6;
@@ -39,7 +29,6 @@
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Container geral com limite máximo */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -47,8 +36,6 @@
 }
 
 /* ====================== TIPOGRAFIA ====================== */
-
-/* Título de seção padrão */
 .section-title {
   font-size: 2.8rem;
   font-weight: 700;
@@ -57,51 +44,48 @@
   margin-bottom: 3rem;
 }
 
-/* ====================== EQUIPE ====================== */
-
+/* ====================== EQUIPE – AGORA SÓ FLEX ====================== */
 .equipe-section {
   padding: 100px 0;
   color: var(--texto-principal);
 }
 
-/* Grid com 3 colunas */
+/* Flexbox com wrap → 3 colunas no desktop, 2 no tablet, 1 no mobile */
 .equipe-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 40px;
-  justify-items: center;
+  justify-content: center;        /* centraliza os cards */
 }
 
-/* Card do membro */
+/* Cada card ocupa o espaço necessário, mas não menos que 260px */
 .membro-card {
+  flex: 1 1 260px;                /* cresce, mas não encolhe abaixo de 260px */
+  max-width: 320px;               /* evita ficar muito largo em telas grandes */
   text-align: center;
   transition: var(--transition);
 }
 
-/* Animação ao passar o mouse: levanta o card */
 .membro-card:hover {
   transform: translateY(-12px);
 }
 
-/* Foto do membro */
 .membro-foto {
   width: 140px;
   height: 140px;
-  border-radius: 50%;                 /* Torna redonda */
-  object-fit: cover;                  /* Preenche sem distorcer */
+  border-radius: 50%;
+  object-fit: cover;
   border: 5px solid var(--cor-secundaria);
   margin-bottom: 1rem;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
 }
 
-/* Quando passar o mouse no card, muda estilo da foto */
 .membro-card:hover .membro-foto {
   border-color: var(--cor-primaria);
   box-shadow: var(--shadow-md);
 }
 
-/* Nome do membro */
 .membro-nome {
   font-size: 1.25rem;
   font-weight: 600;
@@ -109,7 +93,6 @@
   margin-bottom: 0.25rem;
 }
 
-/* Cargo do membro */
 .membro-cargo {
   color: var(--texto-claro);
   font-size: 0.95rem;
@@ -117,96 +100,77 @@
 }
 
 /* ====================== SOBRE NÓS ====================== */
-
 .sobre-section {
   padding: 100px 0;
   background: linear-gradient(135deg, #f8fbff 0%, #e8f0fe 100%);
   color: var(--texto-secundario);
 }
 
-/* Mesmo layout, mas com gradiente escuro quando dark mode */
 [data-theme="dark"] .sobre-section {
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
 }
 
-/* Centraliza texto e limita largura */
 .sobre-texto-center {
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* Estilo geral do texto */
 .sobre-texto {
   font-size: 1.22rem;
   line-height: 1.9;
 }
 
-/* Espaçamento entre parágrafos */
 .sobre-texto p {
   margin-bottom: 1.6rem;
 }
 
-/* Destaque em negrito */
 .sobre-texto strong {
   color: var(--cor-primaria);
   font-weight: 600;
 }
 
-/* ====================== RESPONSIVO ====================== */
-
-/* Tablets grandes */
+/* ====================== RESPONSIVO – SÓ FLEX ====================== */
 @media (max-width: 992px) {
-  .section-title {
-    font-size: 2.5rem;
-  }
-
-  .sobre-texto {
-    font-size: 1.15rem;
-  }
+  .section-title { font-size: 2.5rem; }
+  .sobre-texto { font-size: 1.15rem; }
 }
 
-/* Tablets médios */
 @media (max-width: 768px) {
-  .section-title {
-    font-size: 2.3rem;
-  }
+  .section-title { font-size: 2.3rem; }
 
-  /* De 3 colunas → 2 colunas */
-  .equipe-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 35px;
+  /* Força 2 colunas no tablet */
+  .membro-card {
+    flex: 1 1 45%;           /* dois cards por linha */
+    max-width: 48%;
   }
 }
 
-/* Smartphones */
 @media (max-width: 640px) {
   .section-title {
     font-size: 2.1rem;
     margin-bottom: 2.5rem;
   }
 
-  /* Fotos menores */
   .membro-foto {
     width: 110px;
     height: 110px;
   }
 
-  /* Texto menor */
   .sobre-texto {
     font-size: 1.1rem;
     line-height: 1.85;
   }
 }
 
-/* Smartphones pequenos */
 @media (max-width: 480px) {
-  .section-title {
-    font-size: 1.9rem;
-  }
+  .section-title { font-size: 1.9rem; }
 
-  /* Menos padding na lateral */
-  .container {
-    padding: 0 15px;
+  .container { padding: 0 15px; }
+
+  /* 1 coluna no celular */
+  .membro-card {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }

@@ -1,29 +1,33 @@
 /* ====================== HOME - SOBRE O PROJETO ====================== */
 
+/* Container principal da página Home */
 .home-page {
   width: 100%;
-  min-height: 100vh;
-  padding: 40px 20px 100px;
+  min-height: 100vh;            /* ocupa a tela inteira verticalmente */
+  padding: 40px 20px 100px;     /* espaçamento interno */
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+/* Primeira grande seção branca da Home */
 .section-a {
   width: 100%;
-  max-width: 1100px;
-  background: var(--bg-claro);
+  max-width: 1100px;            /* largura máxima */
+  background: var(--bg-claro);  /* usa variável do tema */
   padding: 60px 50px;
-  border-radius: 40px;
+  border-radius: 40px;          /* bordas arredondadas grandes */
   box-shadow: var(--shadow-md);
-  margin: 50px auto 30px; /* centralizado */
+  margin: 50px auto 30px;       /* centraliza horizontalmente */
 }
 
+/* Quando estiver no modo dark */
 [data-theme="dark"] .section-a {
   background: rgba(30, 41, 59, 0.95);
   border: 1px solid rgba(148, 163, 184, 0.12);
 }
 
+/* Título da seção "Sobre o Projeto" */
 .titulo-sobre {
   text-align: center;
   font-size: 2.6rem;
@@ -32,18 +36,19 @@
   margin-bottom: 3.5rem;
 }
 
+/* Área onde ficam os cards sobre o projeto */
 .cards-area {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 50px;                   /* espaço entre os cards */
 }
 
-/* CARD AMARELADO no light e tom dourado suave no dark */
+/* CARD amarelinho (modo claro) */
 .bloco-card {
   display: flex;
   align-items: center;
   gap: 50px;
-  background: #fff8e1;
+  background: #fff8e1;          /* tom amarelo suave */
   border: 2px solid #fde68a;
   padding: 40px;
   border-radius: 32px;
@@ -51,38 +56,44 @@
   transition: var(--transition);
 }
 
+/* CARD no modo dark */
 [data-theme="dark"] .bloco-card {
   background: rgba(212, 165, 63, 0.18);
   border: 2px solid rgba(212, 165, 63, 0.45);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);   /* efeito de vidro fosco */
 }
 
+/* Animação quando passa o mouse */
 .bloco-card:hover {
   transform: translateY(-10px);
   box-shadow: var(--shadow-md);
   border-color: var(--cor-destaque);
 }
 
+/* Versão invertida (imagem à direita) */
 .bloco-card.reverse {
   flex-direction: row-reverse;
 }
 
+/* Imagem dentro do card */
 .imagem-sobre {
   width: 280px;
   height: 280px;
   border-radius: 24px;
   object-fit: cover;
-  flex-shrink: 0;
+  flex-shrink: 0;               /* impede de encolher */
   border: 5px solid var(--cor-secundaria);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
 }
 
+/* Quando o card está em hover, a borda também muda */
 .bloco-card:hover .imagem-sobre {
   border-color: var(--cor-primaria);
   box-shadow: var(--shadow-md);
 }
 
+/* Título dentro do texto do card */
 .texto-sobre h2 {
   font-size: 1.9rem;
   font-weight: 700;
@@ -90,6 +101,7 @@
   margin-bottom: 1.4rem;
 }
 
+/* Parágrafos dentro do card */
 .texto-sobre p {
   font-size: 1.1rem;
   line-height: 1.8;
@@ -100,6 +112,7 @@
 
 /* ====================== OBJETIVOS DO PROJETO ====================== */
 
+/* Container geral dessa seção */
 .objetivos-section {
   width: 100%;
   max-width: 1200px;
@@ -107,15 +120,17 @@
   padding: 0 20px;
 }
 
+/* Título grande da seção */
 .section-title {
   text-align: center;
   font-size: 2.6rem;
   font-weight: 700;
   color: var(--cor-primaria);
   margin-bottom: 4rem;
-  position: relative;
+  position: relative;          /* necessário para o ::after */
 }
 
+/* Barrinha embaixo do título */
 .section-title::after {
   content: '';
   display: block;
@@ -126,45 +141,52 @@
   border-radius: 3px;
 }
 
+/* Grid responsivo dos objetivos */
 .objetivos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
 }
 
+/* Card dos objetivos */
 .objetivo-card {
   background: #fff8e1;
   border: 2px solid #fde68a;
   border-radius: 28px;
-  overflow: hidden;
+  overflow: hidden;             /* corta conteúdo que transbordar */
   box-shadow: var(--shadow-sm);
   transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
 }
 
+/* Card no modo dark */
 [data-theme="dark"] .objetivo-card {
   background: rgba(212, 165, 63, 0.18);
   border: 2px solid rgba(212, 165, 63, 0.45);
   backdrop-filter: blur(8px);
 }
 
+/* Animação do card */
 .objetivo-card:hover {
   transform: translateY(-12px);
   box-shadow: var(--shadow-lg);
   border-color: var(--cor-destaque);
 }
 
+/* Cabeçalho do card */
 .card-header {
-  background: linear-gradient(135deg, #fcd34d, #f, #fde68a);
+  background: linear-gradient(135deg, #fcd34d, #f, #fde68a); /* parece ter erro no #f */
   padding: 20px 24px;
   text-align: center;
 }
 
+/* Cabeçalho no dark mode */
 [data-theme="dark"] .card-header {
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(212, 165, 63, 0.5));
 }
 
+/* Título do card */
 .card-header h3 {
   font-size: 1.35rem;
   font-weight: 600;
@@ -172,6 +194,7 @@
   margin: 0;
 }
 
+/* Corpo do card */
 .card-body {
   padding: 28px 24px;
   flex-grow: 1;
@@ -181,6 +204,7 @@
   text-align: center;
 }
 
+/* Subtítulo do card */
 .card-body h4 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -188,6 +212,7 @@
   margin: 0;
 }
 
+/* Texto */
 .card-body p {
   font-size: 1.05rem;
   line-height: 1.7;
@@ -197,6 +222,7 @@
 
 /* ====================== RESPONSIVO ====================== */
 
+/* Tablets grandes */
 @media (max-width: 992px) {
   .section-a { 
     padding: 50px 40px; 
@@ -212,6 +238,7 @@
   }
 }
 
+/* Tablets médios */
 @media (max-width: 768px) {
   .home-page { 
     padding: 30px 15px 80px; 
@@ -224,6 +251,7 @@
     font-size: 2.2rem; 
   }
 
+  /* Cards se tornam coluna (imagem vai pra cima) */
   .bloco-card,
   .bloco-card.reverse {
     flex-direction: column;
@@ -241,6 +269,7 @@
   }
 }
 
+/* Celulares */
 @media (max-width: 480px) {
   .titulo-sobre, .section-title { 
     font-size: 2rem; 

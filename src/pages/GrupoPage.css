@@ -2,13 +2,7 @@
 
 /* Reset global:
    Remove margens/paddings padrões e ativa box-sizing para facilitar layouts */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
 :root {
   /* Paleta do modo claro */

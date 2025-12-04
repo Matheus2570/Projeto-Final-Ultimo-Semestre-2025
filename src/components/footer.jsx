@@ -12,11 +12,10 @@ export default function Footer() {
       <div className="footer-center">
         <h4>Projeto – Esportes + IA</h4>
         <ul>
-          <li>Inteligência Artificial Aplicada</li>
-          <li>Classificação de Modalidades</li>
-          <li>Respostas Automáticas</li>
-          <li>Banco de Dados SQL</li>
-          <li>API Node.js + Express</li>
+         <li>Inteligência Artificial</li>
+<li>Respostas Automáticas</li>
+<li>Interface Web Responsiva</li>
+
         </ul>
       </div>
 

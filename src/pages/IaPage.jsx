@@ -127,14 +127,27 @@
           {/* Centro – Resposta */}
           <main className="ia-coluna ia-coluna-centro">
             {carregando && <p className="ia-carregando">Pensando...</p>}
-            {resposta && (
-              <div className="ia-resposta">
-                <h3>Resposta:</h3>
-                <div className="markdown-content">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{resposta}</ReactMarkdown>
-                </div>
-              </div>
-            )}
+          {resposta && (
+  <div className="ia-resposta">
+    <div className="ia-resposta-header">
+      <h3>Resposta:</h3>
+      <button
+        className="ia-btn-copiar"
+        onClick={() => {
+          navigator.clipboard.writeText(resposta);
+          alert("Copiado para a área de transferência!");
+        }}
+        title="Copiar resposta"
+      >
+        Copiar
+      </button>
+    </div>
+
+    <div className="markdown-content">
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{resposta}</ReactMarkdown>
+    </div>
+  </div>
+)}
           </main>
 
           {/* Direita – Categorias */}

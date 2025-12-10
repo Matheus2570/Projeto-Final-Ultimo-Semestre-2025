@@ -16,6 +16,108 @@
   color: inherit;
 }
 
+/* ====================== RESPOSTA ====================== */
+/* ====================== BOTÃO COPIAR ====================== */
+.ia-resposta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px 20px;
+  background: rgba(248,249,250,0.95);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(21,101,192,0.15);
+  border-radius: 20px 20px 0 0;
+}
+
+.ia-btn-copiar {
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: 600;
+  background-color: rgba(21,101,192,0.15);
+  color: #1565C0;
+  border: 2px solid rgba(21,101,192,0.3);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.ia-btn-copiar:hover {
+  background-color: rgba(21,101,192,0.25);
+  border-color: rgba(21,101,192,0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(21,101,192,0.2);
+}
+
+/* ELIMINA <br>, <br/>, <br /> e quebras de linha indesejadas nas tabelas */
+.markdown-content table br,
+.markdown-content table br ~ br,
+.markdown-content table p:empty,
+.markdown-content table p {
+  display: none !important;
+}
+
+/* Transforma quebras de linha normais (\n) em espaçamento bonito dentro da célula */
+.markdown-content table td,
+.markdown-content table th {
+  white-space: pre-wrap;        /* respeita \n como quebra de linha */
+  line-height: 1.7;
+  padding: 16px 20px !important;
+}
+
+/* Remove margens dos <p> que o ReactMarkdown coloca automaticamente */
+.markdown-content table p {
+  margin: 6px 0 !important;
+  display: block;
+}
+
+/* Se quiser ainda mais limpo: força tudo em uma linha com espaçamento */
+.markdown-content table strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.05em;
+}
+
+/* Versão PREMIUM – células com lista limpa */
+.markdown-content table td {
+  white-space: normal;
+  line-height: 1.8;
+}
+
+.markdown-content table strong {
+  display: block;
+  margin: 10px 0 8px 0;
+  font-size: 1.1em;
+  color: #1565C0;
+}
+
+[data-theme="dark"] .markdown-content table strong {
+  color: #90caf9;
+}
+
+.ia-btn-copiar:active {
+  transform: translateY(0);
+}
+
+/* Dark mode */
+[data-theme="dark"] .ia-resposta-header {
+  background: rgba(30,30,50,0.98);
+  border-bottom-color: rgba(100,150,255,0.3);
+}
+
+[data-theme="dark"] .ia-btn-copiar {
+  background-color: rgba(100,150,255,0.15);
+  color: #90caf9;
+  border-color: rgba(100,150,255,0.4);
+}
+
+[data-theme="dark"] .ia-btn-copiar:hover {
+  background-color: rgba(100,150,255,0.3);
+  border-color: rgba(100,150,255,0.6);
+}
+
 /* ====================== INPUT + BOTÃO ====================== */
 .ia-centro {
   display: flex;
